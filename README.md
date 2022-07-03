@@ -40,4 +40,4 @@ Multiple `rules` can be introduced. A rule will tell the program what to do when
 ```
 rule: <active state> <read value> <write value> <head movement direction> <next state>
 ```
-
+Please note that you can set the write value to `none` if you do not want it to write anything to the cell.
