@@ -14,7 +14,7 @@ class TuringMachine:
     def print_current_tape(self):
         '''Prints the current tape state at any given time'''
         tape_str: str = ''
-        blank_space = ''
+        blank_space: str = ''
 
         # introduce blank space to align head with its position
         if self.head_position > 0:
@@ -32,16 +32,16 @@ class TuringMachine:
 
         return f'{tape_str}\n{head}'
 
-    def read_cell(self):
+    def read_cell(self) -> str:
         return self.tape[self.head_position]
 
-    def write_cell(self, write_value):
+    def write_cell(self, write_value: str):
         if len(write_value) == 1:
             self.tape[self.head_position] = write_value
         else:
             raise Exception('Attempted to write a value of length not equal to 1. Aborting...')
 
-    def move_head(self, direction):
+    def move_head(self, direction: str):
         match direction:
             case 'l':
                 self.head_position -= 1
@@ -57,7 +57,7 @@ class TuringMachine:
                     self.tape.append('.')
                     self.head_position = len(self.tape) - 1
 
-    def switch_state(self, state):
+    def switch_state(self, state: str):
         self.current_state = state
     
     def run(self):
@@ -69,7 +69,7 @@ class TuringMachine:
         
         while True:
             for i in self.rules:
-                cell = self.read_cell()
+                cell: str = self.read_cell()
                 if i[0] == self.current_state and cell in i[1]: # runs if rule matches current criteria
                     if i[2] != 'none':
                         self.write_cell(i[2])
@@ -85,7 +85,7 @@ class TuringMachine:
                     return 'Accepted'
                 return 'Rejected'
 
-def validate_identifier(s):
+def validate_identifier(s: str) -> bool:
     '''Checks that a given machine attribute identifier is an identifier and not an identifier argument'''
     for i in s:
         if not i.isalnum() and i != '_':
