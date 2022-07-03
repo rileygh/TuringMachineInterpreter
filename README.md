@@ -5,6 +5,14 @@ A basic interpreter for Turing Machines.
 
 ---
 
+## Usage
+### CLI Arguments
+```
+usage: python -m interpreter [machine file path]
+```
+
+---
+
 ## Creating Turing Machine (.tm) files
 The Turing Machine files used by this program follow a basic syntax, which is explained below:
 
@@ -33,8 +41,3 @@ Multiple `rules` can be introduced. A rule will tell the program what to do when
 rule: <active state> <read value> <write value> <head movement direction> <next state>
 ```
 
-## Usage
-### CLI Arguments
-```
-usage: python -m interpreter [machine file path]
-```
