@@ -36,7 +36,10 @@ class TuringMachine:
         return self.tape[self.head_position]
 
     def write_cell(self, write_value):
-        self.tape[self.head_position] = write_value
+        if len(write_value) == 1:
+            self.tape[self.head_position] = write_value
+        else:
+            raise Exception('Attempted to write a value of length not equal to 1. Aborting...')
 
     def move_head(self, direction):
         match direction:
@@ -75,12 +78,12 @@ class TuringMachine:
                     self.switch_state(i[4])
 
                     print(self.print_current_tape())
+                    break
                 
-            if not any(self.rules[i][0] and cell in self.rules[i][1] for i, j in enumerate(self.rules)): # no valid rules remaining
+            else: # no valid rules remaining
                 if self.current_state in self.accepting_states:
                     return 'Accepted'
-                else:
-                    return 'Rejected'
+                return 'Rejected'
 
 def validate_identifier(s):
     '''Checks that a given machine attribute identifier is an identifier and not an identifier argument'''
