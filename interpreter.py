@@ -137,7 +137,7 @@ def parse(data):
 
     return alphabet, tape, head_position, current_state, accepting_states, rules
 
-# for CLI usage, see https://github.com/jadedevs/TuringMachineInterpreter README.md. if you want to use this without a CLI, paste your machine path in place of str(sys.argv[1])
+# for CLI usage, see https://github.com/jadedevs/TuringMachineInterpreter README.md. if you want to use this without a CLI, paste your machine path in place of sys.argv[1]
 tm = TuringMachine(*parse(read_machine(sys.argv[1])))
 
 print(tm.run())
