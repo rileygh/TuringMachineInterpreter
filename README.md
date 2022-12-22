@@ -1,7 +1,7 @@
 # Turing Machine Interpreter
 A basic interpreter for Turing Machines.
 
-### It is strongly advised to have some knowledge of the operations of a Turing Machine before using this program.
+### It is strongly advised to have some knowledge of the operations of a [Turing Machine](https://en.wikipedia.org/wiki/Turing_machine) before using this program.
 
 ---
 
