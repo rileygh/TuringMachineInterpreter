@@ -3,6 +3,7 @@ A basic interpreter for Turing Machines.
 
 ### It is strongly advised to have some knowledge of the operations of a [Turing Machine](https://en.wikipedia.org/wiki/Turing_machine) before using this program.
 
+###### (if you have not encountered Turing Machines before, click [here](https://plato.stanford.edu/entries/turing-machine/#:~:text=Turing%20machines%2C%20first%20described%20by,the%20computing%20of%20real%20numbers.) for a detailed introduction which will provide more than enough information to get you started)
 ---
 
 ## Usage
