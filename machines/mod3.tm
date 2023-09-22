@@ -1,4 +1,4 @@
-Machine Syntax is defined in the README file at https://github.com/SakuraaDev/TuringMachineInterpreter
+Machine Syntax is defined in the README file at https://github.com/rileygh/TuringMachineInterpreter
 
 Example machine that accepts input divisible by 3
 alphabet: 0123456789
