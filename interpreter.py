@@ -14,7 +14,7 @@ class TuringMachine:
     def print_current_tape(self):
         '''Prints the current tape state at any given time'''
         tape_str: str = ''
-        blank_space: str = ''
+        blank_space = ''
 
         # introduce blank space to align head with its position
         if self.head_position > 0:
@@ -22,7 +22,7 @@ class TuringMachine:
                 blank_space += '    '
 
         # create formatted and aligned tape string
-        for i, j in enumerate(self.tape):
+        for i, _ in enumerate(self.tape):
             if i == 0:
                 tape_str += self.tape[i]
             else:
@@ -35,13 +35,13 @@ class TuringMachine:
     def read_cell(self) -> str:
         return self.tape[self.head_position]
 
-    def write_cell(self, write_value: str):
+    def write_cell(self, write_value):
         if len(write_value) == 1:
             self.tape[self.head_position] = write_value
         else:
             raise Exception('Attempted to write a value of length not equal to 1. Aborting...')
 
-    def move_head(self, direction: str):
+    def move_head(self, direction):
         match direction:
             case 'l':
                 self.head_position -= 1
@@ -57,7 +57,7 @@ class TuringMachine:
                     self.tape.append('.')
                     self.head_position = len(self.tape) - 1
 
-    def switch_state(self, state: str):
+    def switch_state(self, state):
         self.current_state = state
     
     def run(self):
@@ -69,7 +69,7 @@ class TuringMachine:
         
         while True:
             for i in self.rules:
-                cell: str = self.read_cell()
+                cell = self.read_cell()
                 if i[0] == self.current_state and cell in i[1]: # runs if rule matches current criteria
                     if i[2] != 'none':
                         self.write_cell(i[2])
@@ -85,14 +85,13 @@ class TuringMachine:
                     return 'Accepted'
                 return 'Rejected'
 
-def validate_identifier(s: str) -> bool:
+def validate_identifier(s):
     '''Checks that a given machine attribute identifier is an identifier and not an identifier argument'''
     for i in s:
         if not i.isalnum() and i != '_':
             return False
 
     return True
-
 
 def read_machine(file: str) -> List[str]:
     '''Read init data from given turing machine file (filename.tm)'''
@@ -137,7 +136,7 @@ def parse(data):
 
     return alphabet, tape, head_position, current_state, accepting_states, rules
 
-# for CLI usage, see https://github.com/jadedevs/TuringMachineInterpreter README.md. if you want to use this without a CLI, paste your machine path in place of sys.argv[1]
+# for CLI usage, see https://github.com/rileygh/TuringMachineInterpreter README.md. if you want to use this without a CLI, paste your machine path in place of str(sys.argv[1])
 tm = TuringMachine(*parse(read_machine(sys.argv[1])))
 
 print(tm.run())
